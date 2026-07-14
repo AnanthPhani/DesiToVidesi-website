@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Desi To Videsi — Custom tailoring, personal shopping, storage & worldwide courier from Hyderabad, India to NRIs everywhere.">
+<meta property="og:title" content="Desi To Videsi — India's Premium NRI Service">
+<meta property="og:description" content="Custom-tailored outfits, personal shopping, secure storage & worldwide courier from India to your doorstep.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:image" content="assets/logo.png">
+<title>Desi To Videsi — India's Premium NRI Service</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="config.js"></script>
+<style>
+:root{
+  --navy:#FFFFFF;--navy-mid:#F9F9F9;--navy-light:#F0F0F0;
+  --gold:#C9A84C;--gold-light:#E8C97A;--gold-dim:#B89030;
+  --saffron:#E67E22;--cream:#111111;--text:#444444;--text-dim:#777777;
+  --nav-height:78px;
+  --anchor-offset:128px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:var(--anchor-offset);}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--text);overflow-x:hidden;}
+
+/* NAV */
+.site-nav{position:fixed;top:0;left:0;width:100%;z-index:200;padding:12px 24px;background:rgba(255,255,255,.98);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,76,.3);}
+.nav-shell{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;}
+.nav-logo{display:inline-flex;align-items:center;justify-self:start;flex-shrink:0;}
+.nav-logo img{height:48px;width:auto;display:block;}
+.nav-links{display:flex;justify-content:flex-start;align-items:center;gap:32px;list-style:none;min-width:0;}
+.nav-links a{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .3s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{justify-self:end;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:8px 20px;font-family:'DM Sans',sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all .3s;white-space:nowrap;}
+.nav-cta:hover{background:var(--gold);color:#ffffff;}
+
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;width:36px;height:36px;flex-shrink:0;}
+.hamburger span{display:block;height:2px;background:var(--gold);transition:all .3s;border-radius:2px;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* Mobile drawer */
+.mobile-nav{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(255,255,255,.98);backdrop-filter:blur(16px);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:10px;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;color:var(--cream);text-decoration:none;letter-spacing:.05em;padding:10px 0;border-bottom:1px solid rgba(201,168,76,.3);width:240px;text-align:center;transition:color .3s;}
+.mobile-nav a:hover{color:var(--gold);}
+.mobile-nav .mob-cta{margin-top:18px;background:var(--gold);color:#ffffff;padding:13px 38px;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;border:none;}
+
+/* Utility */
+.gold-line{height:1px;background:linear-gradient(to right,transparent,var(--gold-dim),transparent);margin:0 60px;}
+section{padding:96px 60px;}
+section[id]{scroll-margin-top:var(--anchor-offset);}
+.section-tag{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.1rem);font-weight:300;line-height:1.2;color:var(--cream);margin-bottom:16px;}
+.section-title em{font-style:italic;color:var(--gold-light);}
+.section-body{font-size:.95rem;color:var(--text-dim);line-height:1.9;max-width:520px;}
+.btn-gold{background:var(--gold);color:#ffffff;padding:14px 34px;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;text-decoration:none;transition:background .3s,transform .2s;display:inline-block;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+.btn-outline{background:transparent;border:1px solid rgba(201,168,76,.5);color:var(--gold);padding:14px 34px;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all .3s;}
+.btn-outline:hover{border-color:var(--gold);background:rgba(201,168,76,.08);}
+
+/* Hero */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:calc(var(--nav-height) + 84px) 40px 80px;background:radial-gradient(ellipse 70% 50% at 50% 60%,rgba(201,168,76,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 20% 20%,rgba(224,123,42,.1) 0%,transparent 60%),var(--navy);}
+.hero-logo{height:140px;width:auto;margin:0 auto 32px;display:block;filter:drop-shadow(0 6px 24px rgba(201,168,76,.22));animation:fadeUp .7s ease both;}
+.hero-badge{display:inline-block;border:1px solid rgba(201,168,76,.4);color:var(--gold);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;padding:6px 18px;margin-bottom:28px;animation:fadeUp .8s ease .1s both;}
+#hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,5.8rem);font-weight:300;line-height:1.1;color:var(--cream);animation:fadeUp .9s ease .15s both;}
+#hero h1 em{font-style:italic;color:var(--gold-light);}
+.hero-sub{margin:22px auto 0;font-size:1rem;font-weight:300;color:var(--text-dim);max-width:540px;line-height:1.8;animation:fadeUp 1s ease .2s both;}
+.hero-actions{margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s ease .25s both;}
+.hero-stats{margin-top:64px;display:flex;gap:52px;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s ease .3s both;}
+.stat{text-align:center;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--gold);}
+.stat-label{font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-top:4px;}
+
+/* Services */
+#services{background:var(--navy-mid);}
+.services-header{max-width:1200px;margin:0 auto 56px;}
+.services-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;}
+.service-card{background:var(--navy);padding:44px 34px;border-top:2px solid transparent;transition:border-color .35s,background .3s,transform .3s;}
+.service-card:hover{border-top-color:var(--gold);background:#FFFFFF;transform:translateY(-4px);}
+.service-icon{font-size:2.1rem;margin-bottom:22px;display:block;}
+.service-card h3{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;color:var(--cream);margin-bottom:12px;}
+.service-card p{font-size:.88rem;color:var(--text-dim);line-height:1.85;}
+.service-card .learn{display:inline-block;margin-top:22px;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold-dim);padding-bottom:2px;text-decoration:none;transition:border-color .3s;}
+.service-card:hover .learn{border-color:var(--gold);}
+
+/* How it works */
+#how{background:radial-gradient(ellipse 60% 60% at 80% 40%,rgba(201,168,76,.1) 0%,transparent 70%),var(--navy);}
+.how-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.step{display:flex;gap:26px;padding:30px 0;border-bottom:1px solid rgba(201,168,76,.35);transition:padding-left .3s;}
+.step:hover{padding-left:8px;}
+.step:last-child{border-bottom:none;}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:rgba(201,168,76,.35);line-height:1;min-width:52px;}
+.step-content h4{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--cream);margin-bottom:8px;}
+.step-content p{font-size:.87rem;color:var(--text-dim);line-height:1.8;}
+.how-aside{padding-top:10px;}
+.how-aside .section-body{max-width:100%;}
+.highlight-box{margin-top:38px;border:1px solid rgba(201,168,76,.35);padding:30px;background:rgba(201,168,76,.04);}
+.highlight-box p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--gold-light);line-height:1.7;}
+.highlight-box cite{display:block;margin-top:14px;font-family:'DM Sans',sans-serif;font-style:normal;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);}
+
+/* Categories */
+#categories{background:var(--navy-mid);}
+.cat-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;}
+.cat-item{background:var(--navy);padding:32px 16px;text-align:center;transition:background .3s;}
+.cat-item:hover{background:#FFFFFF;}
+.cat-icon{font-size:1.9rem;margin-bottom:12px;display:block;}
+.cat-item span{font-size:.82rem;letter-spacing:.06em;color:var(--text-dim);}
+
+/* ── TRUST 1: PLATFORMS ── */
+#platforms{background:var(--navy);}
+.platforms-inner{max-width:1100px;margin:0 auto;text-align:center;}
+.platforms-inner .section-title{margin-bottom:10px;}
+.platforms-inner .lead{font-size:.9rem;color:var(--text-dim);margin-bottom:48px;}
+.platform-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;}
+.plat{padding:11px 22px;border:1px solid rgba(201,168,76,.16);font-size:.84rem;font-weight:500;letter-spacing:.05em;color:var(--text-dim);background:var(--navy-mid);transition:border-color .3s,color .3s;white-space:nowrap;}
+.plat:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ── TRUST 2: TESTIMONIALS ── */
+#testimonials{background:var(--navy-mid);}
+.testimonials-inner{max-width:1100px;margin:0 auto;}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:52px;}
+.testi-card{background:var(--navy);padding:36px 32px;border:1px solid rgba(201,168,76,.25);transition:border-color .35s;}
+.testi-card:hover{border-color:rgba(201,168,76,.35);}
+.stars{color:var(--gold);font-size:.95rem;letter-spacing:2px;margin-bottom:18px;}
+.testi-card blockquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.08rem;color:var(--cream);line-height:1.75;margin-bottom:22px;}
+.testi-meta{display:flex;align-items:center;gap:14px;}
+.testi-avatar{width:42px;height:42px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--gold-dim),var(--saffron));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:#ffffff;}
+.testi-name{font-size:.88rem;font-weight:500;color:var(--cream);}
+.testi-loc{font-size:.75rem;color:var(--text-dim);margin-top:2px;}
+
+/* Why us */
+#why{background:var(--navy);}
+.why-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.why-features{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.why-feat{padding:26px;border:1px solid rgba(201,168,76,.25);transition:border-color .3s,background .3s;}
+.why-feat:hover{border-color:rgba(201,168,76,.35);background:rgba(201,168,76,.04);}
+.why-feat .feat-icon{font-size:1.5rem;margin-bottom:12px;}
+.why-feat h4{font-size:.9rem;font-weight:500;color:var(--cream);margin-bottom:7px;}
+.why-feat p{font-size:.82rem;color:var(--text-dim);line-height:1.7;}
+
+/* Designer */
+#designer{background:var(--navy-mid);}
+.designer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.designer-card{border:1px solid rgba(201,168,76,.35);padding:48px 40px;background:linear-gradient(135deg,rgba(201,168,76,.1) 0%,transparent 60%);text-align:center;}
+.designer-avatar{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dim),var(--saffron));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:#ffffff;margin:0 auto 22px;font-weight:700;}
+.designer-card h3{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--cream);margin-bottom:5px;}
+.designer-card .role{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;}
+.designer-card p{font-size:.87rem;color:var(--text-dim);line-height:1.8;}
+
+/* Contact */
+#contact{background:radial-gradient(ellipse 80% 50% at 50% 100%,rgba(201,168,76,.1) 0%,transparent 70%),var(--navy);}
+.contact-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;}
+.contact-info{display:flex;flex-direction:column;gap:28px;margin-top:36px;}
+.contact-item{display:flex;align-items:flex-start;gap:18px;}
+.contact-icon{width:42px;height:42px;flex-shrink:0;border:1px solid var(--gold-dim);display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.contact-item h5{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+.contact-item p,.contact-item a{font-size:.9rem;color:var(--text-dim);line-height:1.7;text-decoration:none;}
+.contact-item a:hover{color:var(--gold);}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--cream);margin-bottom:6px;}
+.form-sub{font-size:.84rem;color:var(--text-dim);margin-bottom:22px;line-height:1.6;}
+.contact-form{display:flex;flex-direction:column;gap:11px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+.contact-form input,
+.contact-form select,
+.contact-form textarea{background:#FFFFFF;border:1px solid rgba(201,168,76,.35);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:.88rem;padding:13px 16px;outline:none;transition:border-color .3s;resize:none;width:100%;appearance:none;-webkit-appearance:none;}
+.contact-form select option{background:var(--navy-mid);color:var(--cream);}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--text-dim);}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--gold);}
+.contact-form textarea{min-height:110px;}
+.form-actions{display:flex;gap:11px;flex-wrap:wrap;}
+.btn-submit{flex:1;background:var(--gold);color:#ffffff;padding:14px 20px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:background .3s,transform .2s;min-width:140px;}
+.btn-submit:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+.btn-wa{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#1a5c30;color:#fff;padding:14px 20px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .3s;min-width:140px;}
+.btn-wa:hover{background:#25a244;}
+.form-status{display:none;padding:13px 16px;font-size:.84rem;line-height:1.5;border-left:3px solid var(--gold);background:rgba(201,168,76,.08);color:var(--cream);margin-top:4px;}
+.form-status.error{border-color:#c0392b;background:rgba(192,57,43,.1);color:#e07b7b;}
+.form-status.show{display:block;}
+
+/* Footer */
+footer{background:#F9F9F9;padding:36px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;border-top:1px solid rgba(201,168,76,.25);}
+.footer-logo img{height:44px;width:auto;}
+footer p{font-size:.76rem;color:var(--text-dim);}
+.footer-links{display:flex;gap:26px;}
+.footer-links a{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .3s;}
+.footer-links a:hover{color:var(--gold);}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+/* Responsive */
+@media(max-width:960px){
+  :root{--nav-height:72px;}
+  :root{--anchor-offset:116px;}
+  .site-nav{padding:12px 20px;}
+  .nav-shell{grid-template-columns:auto 1fr auto;gap:16px;}
+  .nav-logo{display:inline-flex;}
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  section{padding:72px 24px;}
+  .gold-line{margin:0 24px;}
+  .how-inner,.why-inner,.designer-inner,.contact-inner{grid-template-columns:1fr;gap:40px;}
+  .why-features{grid-template-columns:1fr 1fr;}
+  .services-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:32px;}
+  .form-row{grid-template-columns:1fr;}
+  footer{padding:28px 24px;flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:600px){
+  :root{--anchor-offset:104px;}
+  .nav-shell{gap:12px;}
+  .nav-logo img{height:42px;}
+  #hero{padding:calc(var(--nav-height) + 56px) 20px 60px;}
+  .hero-logo{height:110px;}
+  #hero h1{font-size:2.4rem;}
+  .hero-sub{font-size:.92rem;}
+  .hero-actions{flex-direction:column;align-items:center;}
+  .btn-gold,.btn-outline{width:220px;text-align:center;}
+  .hero-stats{gap:24px;}
+  .why-features{grid-template-columns:1fr;}
+  .cat-grid{grid-template-columns:repeat(2,1fr);}
+  .designer-card{padding:36px 24px;}
+  .form-actions{flex-direction:column;}
+  .btn-submit,.btn-wa{min-width:unset;}
+  .footer-links{flex-wrap:wrap;gap:14px;}
+  .testi-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- Mobile drawer -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation menu">
+  <a href="#hero"         onclick="closeMob()">Home</a>
+  <a href="#services"     onclick="closeMob()">Services</a>
+  <a href="#how"          onclick="closeMob()">How It Works</a>
+  <a href="#platforms"    onclick="closeMob()">Platforms</a>
+  <a href="#testimonials" onclick="closeMob()">Reviews</a>
+  <a href="#designer"     onclick="closeMob()">Designer</a>
+  <a href="#contact"      onclick="closeMob()" class="mob-cta">Get Started</a>
+</div>
+
+<!-- NAV -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-shell">
+    <a class="nav-logo" href="#hero" aria-label="Desi To Videsi home">
+      <img src="assets/logo.png" alt="Desi To Videsi logo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#designer">Designer</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Get Started</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div>
+    <img class="hero-logo" src="assets/logo.png" alt="Desi To Videsi">
+    <div class="hero-badge">India's Premium NRI Service · Hyderabad</div>
+    <h1>Your India.<br>Your <em>Doorstep.</em><br>Anywhere.</h1>
+    <p class="hero-sub">Custom-tailored outfits, personal shopping, secure storage & worldwide courier — all curated from the heart of India, delivered to you.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-gold">Enquire Now</a>
+      <a href="#contact" class="btn-outline" id="heroWhatsAppLink" target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">4+</div><div class="stat-label">Core Services</div></div>
+      <div class="stat"><div class="stat-num">3–7</div><div class="stat-label">Days Worldwide</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Custom Orders</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div class="section-tag">What We Do</div>
+    <h2 class="section-title">Services Built<br>for <em>NRIs</em></h2>
+  </div>
+  <div class="services-grid">
+    <article class="service-card reveal">
+      <span class="service-icon" aria-hidden="true">🪡</span>
+      <h3>Custom Tailoring</h3>
+      <p>Describe your dream outfit or share a reference image. Our in-house fashion designer crafts it to your exact measurements — sarees, salwars, blouses, lehengas & more.</p>
+      <a href="#contact" class="learn">Enquire Now →</a>
+    </article>
+    <article class="service-card reveal">
+      <span class="service-icon" aria-hidden="true">🛍️</span>
+      <h3>Personal Shopper</h3>
+      <p>Spotted something on Instagram, Facebook or a local market? Send us the link or screenshot. We source, verify, and purchase it on your behalf — no Indian account needed.</p>
+      <a href="#contact" class="learn">Enquire Now →</a>
+    </article>
+    <article class="service-card reveal">
+      <span class="service-icon" aria-hidden="true">📦</span>
+      <h3>Storage & Consolidation</h3>
+      <p>Your purchases arrive at our secure Hyderabad locker. We hold, inspect and accumulate them until you're ready — then bundle into one cost-saving shipment.</p>
+      <a href="#contact" class="learn">Enquire Now →</a>
+    </article>
+    <article class="service-card reveal">
+      <span class="service-icon" aria-hidden="true">✈️</span>
+      <h3>Worldwide Courier</h3>
+      <p>Once consolidated, your parcel ships directly to your doorstep — tracked, insured, 3–7 business days. US, UK, UAE, Australia, Canada & beyond.</p>
+      <a href="#contact" class="learn">Enquire Now →</a>
+    </article>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="how-inner">
+    <div class="reveal">
+      <div class="section-tag">The Process</div>
+      <h2 class="section-title" style="margin-bottom:36px;">Simple as <em>Four Steps</em></h2>
+      <div class="step">
+        <div class="step-num" aria-hidden="true">01</div>
+        <div class="step-content"><h4>Reach Out & Tell Us</h4><p>WhatsApp or email your requirement — a tailor design, a social media find, a product to source, or a family pickup.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num" aria-hidden="true">02</div>
+        <div class="step-content"><h4>We Shop or Stitch</h4><p>Tailoring orders go to Sruthi's studio; shopping orders are sourced from India's best online and offline stores.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num" aria-hidden="true">03</div>
+        <div class="step-content"><h4>Store & Consolidate</h4><p>Items arrive at your Desi To Videsi Hyderabad locker. We inspect, photograph and hold everything until you're ready.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num" aria-hidden="true">04</div>
+        <div class="step-content"><h4>Packed & Delivered</h4><p>We bundle into one optimised package and courier worldwide — tracked door-to-door in 3–7 business days.</p></div>
+      </div>
+    </div>
+    <div class="how-aside reveal">
+      <div class="section-tag" style="margin-top:56px;">Why This Works</div>
+      <p class="section-body">Sending multiple shipments from India is expensive and complicated. We act as your permanent India address — receiving, holding and bundling into a single cost-optimised consignment.</p>
+      <div class="highlight-box">
+        <p>"From a custom lehenga stitched to your size, to that exact kadai you saw on a reel — we bring all of India to your door."</p>
+        <cite>— Desi To Videsi Promise</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- CATEGORIES -->
+<section id="categories" style="background:var(--navy-mid);">
+  <div style="max-width:1200px;margin:0 auto 52px;" class="reveal">
+    <div class="section-tag">What We Can Source</div>
+    <h2 class="section-title">Almost <em>Everything</em> from India</h2>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-item reveal"><span class="cat-icon" aria-hidden="true">👗</span><span>Apparel & Fashion</span></div>
+    <div class="cat-item reveal"><span class="cat-icon" aria-hidden="true">💎</span><span>Jewellery</span></div>
+    <div class="cat-item reveal"><span class="cat-icon" aria-hidden="true">🪔</span><span>Pooja Items</span></div>
+    <div class="cat-item reveal"><span class="cat-icon" aria-hidden="true">🍛</span><span>Food & Spices</span></div>
+    <div class="cat-item reveal"><span class="cat-icon" aria-hidden="true">🫙</span><span>Kitchenware</span></div>
+    <div class="cat-item reveal"><span class="cat-icon" aria-hidden="true">🎁</span><span>Return Gifts</span></div>
+    <div class="cat-item reveal"><span class="cat-icon" aria-hidden="true">🏺</span><span>Antiques & Décor</span></div>
+    <div class="cat-item reveal"><span class="cat-icon" aria-hidden="true">📦</span><span>Family Parcels</span></div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ═══ TRUST 1: PLATFORMS ═══ -->
+<section id="platforms">
+  <div class="platforms-inner reveal">
+    <div class="section-tag">Sourced From</div>
+    <h2 class="section-title">We Shop From <em>Every Corner</em> of India</h2>
+    <p class="lead">Whether it's a major brand website, a niche local vendor, or an Instagram seller — if it's in India, we can get it.</p>
+    <div class="platform-logos">
+      <div class="plat">Amazon India</div>
+      <div class="plat">Flipkart</div>
+      <div class="plat">Myntra</div>
+      <div class="plat">Ajio</div>
+      <div class="plat">FabIndia</div>
+      <div class="plat">Nykaa Fashion</div>
+      <div class="plat">Meesho</div>
+      <div class="plat">Pepperfry</div>
+      <div class="plat">Limeroad</div>
+      <div class="plat">Snapdeal</div>
+      <div class="plat">Local Markets</div>
+      <div class="plat">Instagram Sellers</div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ═══ TRUST 2: TESTIMONIALS ═══ -->
+<section id="testimonials">
+  <div class="testimonials-inner">
+    <div class="reveal">
+      <div class="section-tag">Customer Stories</div>
+      <h2 class="section-title">What Our <em>Customers Say</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"I shared a screenshot from Instagram and they found the exact saree, got it stitched to my measurements, and delivered to Houston in under 10 days. Absolutely magical service."</blockquote>
+        <div class="testi-meta">
+          <div class="testi-avatar" aria-hidden="true">PK</div>
+          <div><div class="testi-name">Priya K.</div><div class="testi-loc">Houston, USA</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"They held 6 different orders at their locker for 3 weeks and shipped everything in one box. Saved so much on courier costs. Communication throughout was excellent."</blockquote>
+        <div class="testi-meta">
+          <div class="testi-avatar" aria-hidden="true">SR</div>
+          <div><div class="testi-name">Suresh R.</div><div class="testi-loc">London, UK</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"Sruthi designed my wedding blouse based on just a reference photo. The fit was perfect — something I'd never have managed ordering blind from abroad. Highly recommend."</blockquote>
+        <div class="testi-meta">
+          <div class="testi-avatar" aria-hidden="true">AM</div>
+          <div><div class="testi-name">Ananya M.</div><div class="testi-loc">Dubai, UAE</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-inner">
+    <div class="reveal">
+      <div class="section-tag">Our Edge</div>
+      <h2 class="section-title">Why Choose<br><em>Desi To Videsi</em></h2>
+      <p class="section-body">We're not just a courier. We're your trusted shopping partner, fashion studio and logistics team — all rolled into one Hyderabad-based family business.</p>
+    </div>
+    <div class="why-features">
+      <div class="why-feat reveal"><div class="feat-icon" aria-hidden="true">✂️</div><h4>In-House Designer</h4><p>Custom stitching by Sruthi — not outsourced.</p></div>
+      <div class="why-feat reveal"><div class="feat-icon" aria-hidden="true">📱</div><h4>Social Media Finds</h4><p>Send any link or screenshot. We'll find it.</p></div>
+      <div class="why-feat reveal"><div class="feat-icon" aria-hidden="true">🔒</div><h4>Secure Locker</h4><p>Your goods safe in Kukatpally until you're ready.</p></div>
+      <div class="why-feat reveal"><div class="feat-icon" aria-hidden="true">💰</div><h4>Bundle & Save</h4><p>Multiple items, one shipment — big savings.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- DESIGNER -->
+<section id="designer">
+  <div class="designer-inner">
+    <div class="reveal">
+      <div class="section-tag">Meet the Artisan</div>
+      <h2 class="section-title">Fashion Crafted<br>with <em>Purpose</em></h2>
+      <p class="section-body">Every custom garment is designed and stitched personally by our in-house fashion designer. Share your vision — measurements, fabric, occasion — and we deliver a piece made only for you.</p>
+      <a href="#contact" class="btn-gold" id="designerWhatsAppLink" style="margin-top:32px;" target="_blank" rel="noopener">Order a Custom Outfit</a>
+    </div>
+    <div class="designer-card reveal">
+      <div class="designer-avatar" aria-hidden="true">SB</div>
+      <h3>Sruthi Bharadwaj</h3>
+      <div class="role">Fashion Designer · Desi To Videsi</div>
+      <p>Specialising in traditional and fusion Indian wear, Sruthi brings your wardrobe vision to life with precision stitching and a deep understanding of fabrics, occasion, and fit — all from our Hyderabad studio.</p>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-tag reveal">Reach Us</div>
+      <h2 class="section-title reveal">Let's Bring<br><em>India to You</em></h2>
+      <div class="contact-info">
+        <div class="contact-item reveal">
+          <div class="contact-icon" aria-hidden="true">📞</div>
+          <div><h5>Phone / WhatsApp</h5><p><a href="#contact" id="contactPhoneLink"></a></p></div>
+        </div>
+        <div class="contact-item reveal">
+          <div class="contact-icon" aria-hidden="true">🌐</div>
+          <div><h5>Website</h5><p><a href="#" id="contactWebsiteLink" target="_blank" rel="noopener"></a></p></div>
+        </div>
+        <div class="contact-item reveal">
+          <div class="contact-icon" aria-hidden="true">📍</div>
+          <div><h5>Our Location</h5><p id="contactAddress"></p></div>
+        </div>
+        <div class="contact-item reveal">
+          <div class="contact-icon" aria-hidden="true">📸</div>
+          <div><h5>Instagram</h5><p><a href="#" id="contactInstagramLink" target="_blank" rel="noopener"></a></p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="section-tag">Send a Message</div>
+      <p class="form-title">Tell Us What You Need</p>
+      <p class="form-sub">Fill in below and we'll reply within a few hours. Or tap <strong style="color:var(--gold)">WhatsApp</strong> for an instant reply.</p>
+
+      <!--
+        FORMSPREE SETUP (free — no backend needed):
+        1. Sign up at https://formspree.io
+        2. Create a new form — copy your form endpoint
+        3. Replace the action URL below with yours
+        Submissions are then emailed directly to you.
+      -->
+      <form
+        id="contactForm"
+        action=""
+        method="POST"
+        class="contact-form"
+        novalidate
+      >
+        <div class="form-row">
+          <input type="text"  name="name"    id="f-name"    placeholder="Your Name *"     required aria-required="true">
+          <input type="email" name="email"   id="f-email"   placeholder="Email Address *"  required aria-required="true">
+        </div>
+        <div class="form-row">
+          <input type="text"  name="country" id="f-country" placeholder="Country (e.g. USA, UK)" aria-label="Country">
+          <select name="service" id="f-service" aria-label="Service type">
+            <option value="" disabled selected>Service needed…</option>
+            <option>Custom Tailoring</option>
+            <option>Personal Shopper</option>
+            <option>Storage & Courier</option>
+            <option>Other / Multiple</option>
+          </select>
+        </div>
+        <textarea name="message" id="f-msg" placeholder="Describe what you need — size, fabric, product link, occasion…" required aria-required="true"></textarea>
+        <!-- spam honeypot -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="New enquiry — Desi To Videsi website">
+
+        <div class="form-status" id="formStatus" role="alert" aria-live="polite"></div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-submit" id="submitBtn">Send Enquiry</button>
+          <button type="button" class="btn-wa" onclick="sendWhatsApp()">💬 WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><img src="assets/logo.png" alt="Desi To Videsi"></div>
+  <p>© <span id="footerYear"></span> Desi To Videsi. All rights reserved.</p>
+  <nav class="footer-links" aria-label="Footer navigation">
+    <a href="#hero">Home</a>
+    <a href="#services">Services</a>
+    <a href="#how">How It Works</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</footer>
+
+<script>
+const siteConfig = window.APP_CONFIG || {};
+
+function whatsappUrl(message) {
+  if (!siteConfig.whatsappNumber) return '#contact';
+  const url = 'https://wa.me/' + siteConfig.whatsappNumber;
+  return message ? url + '?text=' + encodeURIComponent(message) : url;
+}
+
+function applySiteConfig() {
+  const heroWhatsAppLink = document.getElementById('heroWhatsAppLink');
+  const designerWhatsAppLink = document.getElementById('designerWhatsAppLink');
+  const contactPhoneLink = document.getElementById('contactPhoneLink');
+  const contactWebsiteLink = document.getElementById('contactWebsiteLink');
+  const contactInstagramLink = document.getElementById('contactInstagramLink');
+  const contactAddress = document.getElementById('contactAddress');
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  const form = document.getElementById('contactForm');
+
+  if (heroWhatsAppLink) heroWhatsAppLink.href = whatsappUrl();
+  if (designerWhatsAppLink) {
+    designerWhatsAppLink.href = whatsappUrl('Hi, I want a custom outfit from Desi To Videsi');
+  }
+  if (contactPhoneLink) {
+    contactPhoneLink.textContent = siteConfig.phoneDisplay || '';
+    contactPhoneLink.href = siteConfig.phoneDisplay ? 'tel:' + siteConfig.phoneDisplay.replace(/[^\d+]/g, '') : '#contact';
+  }
+  if (contactWebsiteLink) {
+    contactWebsiteLink.textContent = siteConfig.websiteDisplay || '';
+    contactWebsiteLink.href = siteConfig.websiteUrl || '#';
+  }
+  if (contactInstagramLink) {
+    contactInstagramLink.textContent = siteConfig.instagramDisplay || '';
+    contactInstagramLink.href = siteConfig.instagramUrl || '#';
+  }
+  if (contactAddress && Array.isArray(siteConfig.businessAddress)) {
+    const lines = siteConfig.businessAddress.filter(Boolean);
+    contactAddress.replaceChildren(...lines.flatMap((line, index) => {
+      const nodes = [document.createTextNode(line)];
+      if (index < lines.length - 1) nodes.push(document.createElement('br'));
+      return nodes;
+    }));
+  }
+  if (ogUrl && siteConfig.websiteUrl) ogUrl.content = siteConfig.websiteUrl;
+  if (form && siteConfig.formspreeEndpoint) form.action = siteConfig.formspreeEndpoint;
+}
+
+applySiteConfig();
+
+/* Hamburger */
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => {
+  const open = mobileNav.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+function closeMob() {
+  mobileNav.classList.remove('open');
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMob(); });
+
+/* Scroll reveal */
+const revObs = new IntersectionObserver(
+  entries => entries.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); revObs.unobserve(el.target); } }),
+  { threshold: 0.1 }
+);
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+/* ── Contact form — async Formspree submit ── */
+const form      = document.getElementById('contactForm');
+const statusEl  = document.getElementById('formStatus');
+const submitBtn = document.getElementById('submitBtn');
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+
+  const name  = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const msg   = document.getElementById('f-msg').value.trim();
+
+  if (!name || !email || !msg) {
+    showStatus('Please fill in your name, email and message.', 'error'); return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showStatus('Please enter a valid email address.', 'error'); return;
+  }
+  if (!siteConfig.formspreeEndpoint || form.action.includes('YOUR_FORM_ID')) {
+    showStatus('⚠️ Form not yet configured by the site owner. Please use WhatsApp or call us directly.', 'error'); return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+    if (res.ok) {
+      showStatus("Message sent. We'll get back in a few hours.", 'success');
+      form.reset();
+    } else {
+      const data = await res.json().catch(() => ({}));
+      const err = data.errors ? data.errors.map(e => e.message).join(', ') : 'Submission failed.';
+      showStatus('Could not send: ' + err, 'error');
+    }
+  } catch {
+    showStatus('Network error — please use WhatsApp or call us directly.', 'error');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Enquiry';
+  }
+});
+
+function showStatus(msg, type) {
+  statusEl.textContent = msg;
+  statusEl.className = 'form-status show' + (type === 'error' ? ' error' : '');
+  statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+/* WhatsApp pre-fill from form fields */
+function sendWhatsApp() {
+  const name    = document.getElementById('f-name').value.trim();
+  const country = document.getElementById('f-country').value.trim();
+  const service = document.getElementById('f-service').value;
+  const msg     = document.getElementById('f-msg').value.trim();
+  let text = name ? 'Hi, I am ' + name + (country ? ' from ' + country : '') + '.' : 'Hi,';
+  if (service) text += '\n\nService: ' + service;
+  if (msg) text += '\n\n' + msg;
+  if (!name && !msg) text = 'Hi, I would like to enquire about Desi To Videsi services.';
+  if (!siteConfig.whatsappNumber) {
+    showStatus('WhatsApp is not configured yet. Please call or email us directly.', 'error');
+    return;
+  }
+  window.open(whatsappUrl(text.trim()), '_blank');
+}
+
+document.getElementById('footerYear').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
